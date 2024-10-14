@@ -23,7 +23,7 @@ function SignupPage() {
 
     try {
       const res = await axios.post("https://backend-m.onrender.com/user/signup", data);
-      toast.success(res.data.message);
+      toast.success(res.data.message); 
       navigate('/signin')
     } catch (error) {
       toast.error(error.response.data.message);
