@@ -9,13 +9,6 @@ function LoginPage() {
   const { auth, saveUser } = useAuth();
   const navigate = useNavigate();
 
-  // Effect to redirect if the user is already authenticated
-  useEffect(() => {
-    if (auth !== null) {
-      navigate('/');
-    }
-  }, [auth, navigate]);
-
   const {
     register,
     handleSubmit,

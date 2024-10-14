@@ -3,8 +3,10 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
+import { Link, useNavigate } from "react-router-dom";
 
 function SignupPage() {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -22,6 +24,7 @@ function SignupPage() {
     try {
       const res = await axios.post("https://backend-m.onrender.com/user/signup", data);
       toast.success(res.data.message);
+      navigate('/signin')
     } catch (error) {
       toast.error(error.response.data.message);
       console.log(error);
