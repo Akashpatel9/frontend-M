@@ -1,9 +1,8 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link ,useNavigate} from "react-router-dom";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
-import { Link, useNavigate } from "react-router-dom";
 
 function SignupPage() {
   const navigate = useNavigate();
