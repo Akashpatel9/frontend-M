@@ -18,51 +18,48 @@ export const LeavesProvider = ({ children }) => {
   useEffect(() => {
     if (auth) {
       axios.defaults.headers.common["Authorization"] = `Bearer ${auth}`;
+    } else {
+      delete axios.defaults.headers.common["Authorization"];
     }
   }, [auth]);
 
-
-
   const fetchLeaves = async () => {
+    if (!auth) return; 
+
+    setLoading(true); 
     try {
-      const res = await axios.get("https://backend-m.onrender.com/leave/getAllLeaves");  
+      const res = await axios.get("https://backend-m.onrender.com/leave/getAllLeaves");
       setLeaves(res.data.data);
     } catch (error) {
-        console.log(error);
-        if(error.status==401){
-            logout();
-        }
+      console.log(error);
+      if (error.response?.status === 401) {
+        logout();
+      }
       setError("Error fetching leaves.");
     } finally {
       setLoading(false);
     }
   };
 
-
-
-  // Fetch leaves on initial render
+  // Fetch leaves only when `auth` is available
   useEffect(() => {
     fetchLeaves();
-  }, [logout]);
-
-  
+  }, [auth, logout]);
 
   // Add leave
   const addLeave = async (formData) => {
     try {
       const res = await axios.post("https://backend-m.onrender.com/leave/addleave", formData, {
         headers: {
-          'Content-Type': 'multipart/form-data', // Set content type for file uploads
+          'Content-Type': 'multipart/form-data',
         },
       });
-      console.log(res);
-      
       setLeaves((prev) => [...prev, res.data.data]);
       return res;
     } catch (error) {
-        if(error.status==401){
-            logout();
-        }
+      if (error.response?.status === 401) {
+        logout();
+      }
       const errorMessage = error.response?.data?.message || "An unknown error occurred";
       throw new Error(errorMessage);
     }
@@ -78,9 +75,9 @@ export const LeavesProvider = ({ children }) => {
         )
       );
     } catch (error) {
-        if(error.status==401){
-            logout();
-        }
+      if (error.response?.status === 401) {
+        logout();
+      }
       setError("Error editing leave status.");
     }
   };

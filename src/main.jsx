@@ -8,15 +8,15 @@ import { CandidatesProvider } from "./context/condidatesContext.jsx";
 import { LeavesProvider } from "./context/LeaveContext.jsx";
 
 createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
-    <AuthProvider>
+  <AuthProvider>
+    <BrowserRouter>
       <CandidatesProvider>
         <LeavesProvider>
           <React.Suspense fallback={<div>Loading...</div>}>
-            <App />
+          <App />
           </React.Suspense>
         </LeavesProvider>
       </CandidatesProvider>
-    </AuthProvider>
-  </BrowserRouter>
+    </BrowserRouter>
+  </AuthProvider>
 );

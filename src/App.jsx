@@ -12,53 +12,44 @@ import { useAuth } from "./context/usercontext";
 
 function App() {
   const { auth } = useAuth();
-  const navigate = useNavigate();
-
-  useEffect(() => {
-      navigate('/');
-  }, [auth]);
-
-
   return (
     <div className="h-screen w-screen">
-      <Routes>
-        {!auth ? (
-          <>
-            <Route
-              path="/"
-              element={
-                <div className="px-10 py-20">
-                  <div className="flex h-full w-full border-2 border-zinc-400 rounded-2xl overflow-hidden">
-                    <SignupPage />
-                    <HeroSection />
-                  </div>
+      {!auth ? (
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <div className="px-10 py-20">
+                <div className="flex h-full w-full border-2 border-zinc-400 rounded-2xl overflow-hidden">
+                  <SignupPage />
+                  <HeroSection />
                 </div>
-              }
-            />
+              </div>
+            }
+          />
 
-            <Route
-              path="/signin"
-              element={
-                <div className="px-10 py-20">
-                  <div className="flex h-full w-full border-2 border-zinc-400 rounded-2xl overflow-hidden">
-                    <LoginPage />
-                    <HeroSection />
-                  </div>
+          <Route
+            path="/signin"
+            element={
+              <div className="px-10 py-20">
+                <div className="flex h-full w-full border-2 border-zinc-400 rounded-2xl overflow-hidden">
+                  <LoginPage />
+                  <HeroSection />
                 </div>
-              }
-            />
-            <Route path="*" element={<div>404........ page not found</div>} />
-          </>
-        ) : (
+              </div>
+            }
+          />
+        </Routes>
+      ) : (
+        <Routes>
           <Route path="/" element={<Home />}>
             <Route path="/" element={<Condidate />} />
             <Route path="/employees" element={<Employees />} />
             <Route path="/attendence" element={<Attendence />} />
             <Route path="/leave" element={<Leave />} />
-            <Route path="*" element={<div>404........ page not found</div>} />
           </Route>
-        )}
-      </Routes>
+        </Routes>
+      )}
     </div>
   );
 }

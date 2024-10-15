@@ -21,8 +21,8 @@ function LoginPage() {
       toast.success(res.data.message);
 
       // Save user token in local storage
-      localStorage.setItem('authToken', res.data.token); // Save token in local storage
-      saveUser(res.data.token); // Save user in context
+      await localStorage.setItem('authToken', res.data.token); // Save token in local storage
+      await saveUser(res.data.token); // Save user in context
       navigate('/'); // Redirect to home page after successful login
     } catch (error) {
       toast.error(error.response?.data.message || 'An error occurred');

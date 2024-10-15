@@ -2,7 +2,6 @@ import React, { createContext, useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { useAuth } from "./usercontext";
 
-
 const CandidatesContext = createContext(null);
 
 export const useCandidates = () => {
@@ -15,63 +14,58 @@ export const CandidatesProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-
   // Set default axios headers with the token if available
   useEffect(() => {
     if (auth) {
       axios.defaults.headers.common["Authorization"] = `Bearer ${auth}`;
+    } else {
+      delete axios.defaults.headers.common["Authorization"];
     }
   }, [auth]);
 
-
-
-  // Fetch candidates on initial render
+  // Fetch candidates only when `auth` is available
   useEffect(() => {
     const fetchCandidates = async () => {
+      if (!auth) return;
+
+      setLoading(true);
       try {
         const res = await axios.get(
           "https://backend-m.onrender.com/condidate/getCondidate"
         );
         setCandidates(res.data.data);
       } catch (error) {
-        
-        if(error.status==401){
-            logout();
+        if (error.response?.status === 401) {
+          logout(); 
         }
-        
         setError("Error fetching candidates.");
       } finally {
-        setLoading(false);
+        setLoading(false); 
       }
     };
 
     fetchCandidates();
-  }, []);
-
-
+  }, [auth, logout]);
 
   // Add candidate
   const addCandidate = async (formData) => {
-    console.log(formData);
-
     try {
-        const res = await axios.post(
-          "https://backend-m.onrender.com/condidate/addCondidate",
-          formData
-        );
-        setCandidates((prev) => [...prev, res.data.data]);
-        return res;
-      } catch (error) {
-        if(error.status==401){
-            logout();
-        }
-        console.error("Error adding candidate:", error);
-    
-        const errorMessage = error.response?.data?.message || "An unknown error occurred";
-        throw new Error(errorMessage); 
+      const res = await axios.post(
+        "https://backend-m.onrender.com/condidate/addCondidate",
+        formData
+      );
+      setCandidates((prev) => [...prev, res.data.data]);
+      return res;
+    } catch (error) {
+      if (error.response?.status === 401) {
+        logout();
       }
-      
+      const errorMessage = error.response?.data?.message || "An unknown error occurred";
+      throw new Error(errorMessage);
+    }
   };
+
+
 
   
   // Edit candidate

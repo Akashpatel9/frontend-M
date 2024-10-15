@@ -5,18 +5,23 @@ export const AuthContext = createContext(null);
 export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }) => {
-  const savedAuth = localStorage.getItem('authToken') || null;
-  const [auth, setAuth] = useState(savedAuth);
+  const [auth, setAuth] = useState(null);
+
+  useEffect(() => {
+    const storedAuth = localStorage.getItem("authToken");
+    if (storedAuth) {
+      setAuth(storedAuth);
+    }
+  }, []);
 
   const saveUser = (token) => {
     setAuth(token);
-    localStorage.setItem('authToken', token);
-    window.location.reload()
+    localStorage.setItem("authToken", token); 
   };
 
   const logout = () => {
-    setAuth(null);
-    localStorage.removeItem('authToken');
+    setAuth(null); 
+    localStorage.removeItem("authToken"); 
   };
 
   return (
