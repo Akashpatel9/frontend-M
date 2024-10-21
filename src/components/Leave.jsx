@@ -246,18 +246,18 @@ function Leave() {
               {filterDataByDate?.map((e) => {
                 return (
                   <div className="flex items-center justify-between">
-                    <div className="rounded-full h-14 w-14 bg-red-200"></div>
+                    <div className="rounded-full h-10 w-10 bg-red-200"></div>
                     <div>
-                      <div className="font-semibold text-lg">{e?.fullName}</div>
-                      <div className="font-semibold text-lg">
+                      <div className="font-semibold text-md">{e?.fullName}</div>
+                      <div className="font-semibold text-md">
                         {e?.designation}
                       </div>
                     </div>
                     <div>
-                      <div className="font-semibold text-lg">
+                      <div className="font-semibold text-md">
                         {formatDate(e?.leaveStartDate)}
                       </div>
-                      <div className="font-semibold text-lg">
+                      <div className="font-semibold text-md">
                         {formatDate(e?.leaveEndDate)}
                       </div>
                     </div>
