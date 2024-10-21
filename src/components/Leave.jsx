@@ -90,12 +90,12 @@ function Leave() {
   const closeModel = () => setShowModel(false);
 
   return (
-    <div className="p-5 w-full">
+    <div className="p-5 w-[80vw]">
       <div className="absolute">
         <ToastContainer position="top-right" />
       </div>
-      <div className="my-5 flex items-center justify-between">
-        <div className="flex text-xl gap-5">
+      <div className="my-2 flex items-center justify-between">
+        <div className="flex text-xl gap-2">
           {/* Dropdown for Status Filter */}
           <DropDown options={["Pending", "Approved", "Rejected"]} fn={fn} />
         </div>
@@ -136,47 +136,47 @@ function Leave() {
               </div>
               <div>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                  <div className="grid grid-cols-2 gap-10 p-10 mt-10">
+                  <div className="grid grid-cols-2 gap-5 p-10 mt-10">
                     <input
                       required={true}
-                      className="h-20 rounded-2xl p-5 outline-none text-2xl border-4 border-[#6C39D6]"
+                      className="h-14 rounded-2xl p-5 outline-none text-2xl border-4 border-[#6C39D6]"
                       placeholder="Full Name"
                       {...register("fullName")}
                       type="text"
                     />
                     <input
                       required={true}
-                      className="h-20 rounded-2xl p-5 outline-none text-2xl border-4 border-[#6C39D6]"
+                      className="h-14 rounded-2xl p-5 outline-none text-2xl border-4 border-[#6C39D6]"
                       placeholder="Designation"
                       {...register("designation")}
                       type="text"
                     />
                     <input
                       required={true}
-                      className="h-20 rounded-2xl p-5 outline-none text-2xl border-4 border-[#6C39D6]"
+                      className="h-14 rounded-2xl p-5 outline-none text-2xl border-4 border-[#6C39D6]"
                       placeholder="Leave Date"
                       {...register("leaveStartDate")}
                       type="date"
                     />
                     <input
                       required={true}
-                      className="h-20 rounded-2xl p-5 outline-none text-2xl border-4 border-[#6C39D6]"
+                      className="h-14 rounded-2xl p-5 outline-none text-2xl border-4 border-[#6C39D6]"
                       placeholder="Leave Date"
                       {...register("leaveEndDate")}
                       type="date"
                     />
                     <input
                       required={true}
-                      className="h-20 rounded-2xl p-5 outline-none text-2xl border-4 border-[#6C39D6]"
+                      className="h-14 rounded-2xl p-5 outline-none text-2xl border-4 border-[#6C39D6]"
                       placeholder="Reason"
                       {...register("reason")}
                       type="text"
                     />
-                    <div className="relative h-20 rounded-2xl p-5 outline-none text-2xl border-4 border-[#6C39D6] flex items-center justify-between">
+                    <div className="relative h-14 rounded-2xl p-5 outline-none text-2xl border-4 border-[#6C39D6] flex items-center justify-between">
                       <span className="text-zinc-400">Attachement</span>
                       <label
                         htmlFor="Attachement"
-                        className="bg-[#6C39D6] text-white px-4 py-2 rounded-lg cursor-pointer"
+                        className="bg-[#6C39D6] text-white px-2 py-1 rounded-lg cursor-pointer"
                       >
                         Choose File
                       </label>
@@ -191,7 +191,7 @@ function Leave() {
                   </div>
                   <div className="w-full flex items-center justify-center">
                     <input
-                      className="bg-zinc-600 cursor-pointer text-white w-80 h-16 rounded-full mt-20 font-semibold text-2xl"
+                      className="bg-zinc-600 cursor-pointer text-white w-80 h-14 rounded-full mt-2 font-semibold text-2xl"
                       type="submit"
                       value={"Save"}
                     />
@@ -202,9 +202,9 @@ function Leave() {
           </Model>
         )}
 
-        <div className=" border-2 w-fit h-full border-gray-300 rounded-3xl overflow-hidden">
+        <div className=" border-2 w-full h-full border-gray-300 rounded-3xl overflow-hidden">
           {/* Header Row */}
-          <div className="grid grid-cols-[80px_200px_100px_300px_150px_80px] bg-[#6334C4] text-white text-xl font-bold h-20 items-center">
+          <div className="grid grid-cols-[80px_200px_100px_200px_120px_80px] bg-[#6334C4] text-white text-md font-bold h-20 items-center">
             <div className="p-2 text-center"></div>
             <div className="p-2 text-left">Name</div>
             <div className="p-2 text-left">Date</div>
@@ -221,20 +221,20 @@ function Leave() {
           </div>
         </div>
 
-        <div className="w-1/3 rounded-3xl overflow-hidden border-2 border-zinc-300 mx-auto">
-          <div className="bg-[#6334C4] w-full h-20 font-bold flex items-center justify-center text-white text-xl">
+        <div className="w-2/4 rounded-3xl overflow-hidden border-2 border-zinc-300 mx-auto">
+          <div className="bg-[#6334C4] w-full h-20 font-bold flex items-center justify-center text-white text-md">
             Leave Calander
           </div>
-          <div className="p-5 px-10 ">
+          <div className="p-5 px-2 ">
             <div className="flex justify-between items-center gap-2 py-2">
               <div
                 onClick={() => setDateInput(formatDate(new Date()))}
-                className="px-14 cursor-pointer font-semibold text-xl py-3 border-4 border-[#6334C4] text-black capitalize rounded-full bg-white"
+                className="px-10 cursor-pointer font-semibold text-md py-3 border-4 border-[#6334C4] text-black capitalize rounded-full bg-white"
               >
                 Today
               </div>
               <input
-                className="px-8 font-semibold text-xl py-3 border-4 border-white text-white capitalize rounded-full bg-[#6334C4]"
+                className="px-8 font-semibold text-md py-3 border-4 border-white text-white capitalize rounded-full bg-[#6334C4]"
                 type="date"
                 onChange={(e) => {
                   setDateInput(e.target.value);

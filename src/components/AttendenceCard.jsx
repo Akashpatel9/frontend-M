@@ -106,20 +106,20 @@ function AttendanceCard({ item, employDetailsHandler }) {
 
 
   return (
-    <div style={{color:color}} className="grid my-5 grid-cols-[80px_150px_200px_300px_250px_400px_200px_80px] font-semibold text-lg items-center">
+    <div style={{color:color}} className="grid my-5 grid-cols-[40px_100px_200px_150px_200px_300px_150px_80px] font-semibold text-md items-center">
       <div className="p-2 text-left">
-        <div style={{backgroundColor:color}} className="h-7 w-7 rounded-lg"></div>
+        <div style={{backgroundColor:color}} className="h-5 w-5 rounded-lg"></div>
       </div>
-      <div className="flex items-center justify-start p-2">
-        <div className="h-12 w-12 rounded-full bg-red-300 overflow-hidden">
+      <div className="flex items-center justify-start ">
+        <div className="h-8 w-8 rounded-full bg-red-300 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1728411666518-cc54a750bf05?q=80&w=1888&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
         </div>
       </div>
-      <div className="p-2 text-left">{item?.fullName}</div>
-      <div className="p-2 text-left">{item?.position}</div>
-      <div className="p-2 text-left">{item?.department}</div>
+      <div className="text-left">{item?.fullName}</div>
+      <div className="text-left">{item?.position}</div>
+      <div className="text-left">{item?.department}</div>
       <input
-        className="p-2 text-left outline-none"
+        className="text-left outline-none p-2"
         type="text"
         placeholder={item?.task === "N/A" || item?.task === "" ? "--" : item?.task}
         required={true}
@@ -128,7 +128,7 @@ function AttendanceCard({ item, employDetailsHandler }) {
       />
       <div
         onClick={() => setIsOpen((prev) => !prev)}
-        className="p-2 text-left cursor-pointer"
+        className="text-left cursor-pointer"
       >
         {selectedStatus}
         {isOpen && (
@@ -136,7 +136,7 @@ function AttendanceCard({ item, employDetailsHandler }) {
             {statusOptions.map((status) => (
               <div
                 key={status}
-                className="p-2 hover:bg-gray-200 cursor-pointer"
+                className=" hover:bg-gray-200 cursor-pointer"
                 onClick={() => handleStatusChange(status)}
               >
                 {status}
@@ -151,10 +151,10 @@ function AttendanceCard({ item, employDetailsHandler }) {
         {isOpen2 && (
           <div
             ref={dropdownRef}
-            className="absolute right-0 text-black z-10 bg-white border border-gray-300 rounded-md shadow-md mt-1"
+            className=" absolute -left-10 top-8 text-black z-10 bg-white border border-gray-300 text-md p-1 rounded-md shadow-md mt-1"
           >
             <div
-              className="p-2 hover:bg-gray-200 cursor-pointer"
+              className=" hover:bg-gray-200 cursor-pointer"
               onClick={() =>{ 
                 setIsOpen2(false)
                 employDetailsHandler(item._id, true)}}
@@ -162,7 +162,7 @@ function AttendanceCard({ item, employDetailsHandler }) {
               Edit
             </div>
             <div
-              className="p-2 hover:bg-gray-200 cursor-pointer"
+              className=" hover:bg-gray-200 cursor-pointer"
               onClick={handleDelete}
             >
               Delete

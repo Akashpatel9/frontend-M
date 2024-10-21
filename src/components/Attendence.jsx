@@ -99,7 +99,7 @@ function Attendence() {
   if (error) return <div>{error}</div>;
 
   return (
-    <div className="p-5 w-full">
+    <div className="p-5 w-[80vw]">
       <div className="absolute">
         <ToastContainer position="top-right" />
       </div>
@@ -144,10 +144,10 @@ function Attendence() {
               </div>
               <div>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                  <div className="grid grid-cols-2 gap-10 p-10 mt-10">
+                  <div className="grid grid-cols-2 gap-5 p-10 mt-10">
                     <input
                       required
-                      className="h-20 rounded-2xl p-5 outline-none text-2xl border-4 border-[#6C39D6]"
+                      className="h-14 rounded-2xl p-5 outline-none text-2xl border-4 border-[#6C39D6]"
                       placeholder="Full Name"
                       {...register("fullName", {
                         required: "Full Name is required.",
@@ -161,7 +161,7 @@ function Attendence() {
                     )}
                     <input
                       required
-                      className="h-20 rounded-2xl p-5 outline-none text-2xl border-4 border-[#6C39D6]"
+                      className="h-14 rounded-2xl p-5 outline-none text-2xl border-4 border-[#6C39D6]"
                       placeholder="Email Address"
                       {...register("email", {
                         required: "Email is required.",
@@ -179,7 +179,7 @@ function Attendence() {
                     )}
                     <input
                       required
-                      className="h-20 rounded-2xl p-5 outline-none text-2xl border-4 border-[#6C39D6]"
+                      className="h-14 rounded-2xl p-5 outline-none text-2xl border-4 border-[#6C39D6]"
                       placeholder="Phone Number"
                       {...register("phoneNumber", {
                         required: "Phone Number is required.",
@@ -199,7 +199,7 @@ function Attendence() {
                     )}
                     <input
                       required
-                      className="h-20 rounded-2xl p-5 outline-none text-2xl border-4 border-[#6C39D6]"
+                      className="h-14 rounded-2xl p-5 outline-none text-2xl border-4 border-[#6C39D6]"
                       placeholder="Department"
                       {...register("department", {
                         required: "Department is required.",
@@ -213,7 +213,7 @@ function Attendence() {
                     )}
                     <select
                       required
-                      className="h-20 rounded-2xl p-5 outline-none text-2xl border-4 border-[#6C39D6]"
+                      className="h-14 rounded-2xl p-2 outline-none text-2xl border-4 border-[#6C39D6]"
                       {...register("position")}
                     >
                       <option value="" disabled selected>
@@ -232,7 +232,7 @@ function Attendence() {
                     )}
                     <input
                       required
-                      className="h-20 rounded-2xl p-5 outline-none text-2xl border-4 border-[#6C39D6]"
+                      className="h-14 rounded-2xl p-5 outline-none text-2xl border-4 border-[#6C39D6]"
                       placeholder="Date of Joining"
                       {...register("dateOfJoining", {
                         required: "Date of Joining is required.",
@@ -247,7 +247,7 @@ function Attendence() {
                   </div>
                   <div className="w-full flex items-center justify-center">
                     <input
-                      className="bg-zinc-600 text-white w-80 h-16 rounded-full mt-20 font-semibold text-2xl"
+                      className="bg-zinc-600 text-white w-80 h-14 rounded-full mt-2 font-semibold text-2xl"
                       type="submit"
                       value={"Save"}
                     />
@@ -259,15 +259,15 @@ function Attendence() {
         )}
 
         {/* Header Row */}
-        <div className="grid grid-cols-[80px_150px_200px_300px_250px_400px_200px_80px] bg-[#6334C4] text-white text-xl font-bold h-20 items-center">
-          <div className="p-2 text-left"></div>
-          <div className="p-2 text-left">Profile</div>
-          <div className="p-2 text-left">Employee Name</div>
-          <div className="p-2 text-left">Designation</div>
-          <div className="p-2 text-left">Department</div>
-          <div className="p-2 text-left">Task</div>
-          <div className="p-2 text-left">Status</div>
-          <div className="p-2 text-left"></div>
+        <div className="grid grid-cols-[40px_100px_200px_150px_200px_300px_150px_80px] bg-[#6334C4] text-white text-md font-bold h-20 items-center">
+          <div className="text-left"></div>
+          <div className="text-left">Profile</div>
+          <div className="text-left">Employee Name</div>
+          <div className="text-left">Designation</div>
+          <div className="text-left">Department</div>
+          <div className="text-left">Task</div>
+          <div className="text-left">Status</div>
+          <div className="text-left"></div>
         </div>
 
         {/* Data Rows */}

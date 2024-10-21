@@ -14,23 +14,23 @@ function SideBar() {
   const [conformBox, setConformBox] = useState(false);
 
   return (
-    <div className=" w-1/5 h-screen border-r-4 border-zinc-300 flex flex-col items-center py-10 gap-10 px-5">
+    <div className="w-[20vw] h-full border-r-4 border-zinc-300 flex flex-col items-center py-10 gap-10 px-5">
       <div className="flex items-center gap-2">
-        <div className="h-12 w-12 border-4 border-[#733CE4]"></div>{" "}
-        <div className="text-3xl text-[#733CE4] font-bold">LOGO</div>
+        <div className="h-8 w-8 border-4 border-[#733CE4]"></div>{" "}
+        <div className="text-2xl text-[#733CE4] font-bold">LOGO</div>
       </div>
 
       <div className="w-full border-2 mb-10 border-zinc-200"></div>
 
-      <div className="flex flex-col gap-5">
-        <div className="text-xl text-zinc-400">
+      <div className="flex flex-col gap-2">
+        <div className="text-md text-zinc-400">
           Recruitement
           <div>
             <NavLink
               to={"/"}
 
               className={({ isActive }) =>{
-                return isActive?"flex text-[#733CE4] items-center gap-2 text-2xl font-semibold w-full h-20":"flex items-center text-black gap-2 text-2xl font-semibold w-full h-20"
+                return isActive?"flex text-[#733CE4] items-center gap-2 text-xl font-semibold w-full py-5":"flex items-center text-black gap-2 text-xl font-semibold w-full py-5"
               }}
             >
               <TiUserAdd />
@@ -39,13 +39,13 @@ function SideBar() {
           </div>
         </div>
 
-        <div className="text-xl text-zinc-400">
+        <div className="text-md text-zinc-400">
           Organization
           <div className="">
             <NavLink
               to={"/employees"}
               className={({ isActive }) =>{
-                return isActive?"flex text-[#733CE4] items-center gap-2 text-2xl font-semibold w-full h-20":"flex items-center text-black gap-2 text-2xl font-semibold w-full h-20"
+                return isActive?"flex text-[#733CE4] items-center gap-2 text-xl font-semibold w-full py-5":"flex items-center text-black gap-2 text-xl font-semibold w-full py-5"
               }}
             >
               <IoPeopleSharp /> Employees
@@ -53,7 +53,7 @@ function SideBar() {
             <NavLink 
               to={"/attendence"}
               className={({ isActive }) =>{
-                return isActive?"flex text-[#733CE4] items-center gap-2 text-2xl font-semibold w-full h-20":"flex items-center text-black gap-2 text-2xl font-semibold w-full h-20"
+                return isActive?"flex text-[#733CE4] items-center gap-2 text-xl font-semibold w-full py-5":"flex items-center text-black gap-2 text-xl font-semibold w-full py-5"
               }}
             >
               <MdOutlineSignalCellularAlt />
@@ -62,7 +62,7 @@ function SideBar() {
             <NavLink 
               to={"/leave"}
               className={({ isActive }) =>{
-                return isActive?"flex text-[#733CE4] items-center gap-2 text-2xl font-semibold w-full h-20":"flex items-center text-black gap-2 text-2xl font-semibold w-full h-20"
+                return isActive?"flex text-[#733CE4] items-center gap-2 text-xl font-semibold w-full py-5":"flex items-center text-black gap-2 text-xl font-semibold w-full py-5"
               }}
             >
               <BsStars />
@@ -71,12 +71,12 @@ function SideBar() {
           </div>
         </div>
 
-        <div className="text-xl text-zinc-400">
+        <div className="text-md text-zinc-400">
           Others
           <div>
             <div
               onClick={() => setConformBox(true)}
-              className="flex hover:text-[#733CE4] items-center text-black cursor-pointer gap-2 text-2xl font-semibold w-full h-20"
+              className="flex hover:text-[#733CE4] items-center text-black cursor-pointer gap-2 text-xl font-semibold w-full py-5"
             >
               <IoIosLogOut />
               Log out
@@ -85,11 +85,11 @@ function SideBar() {
             {conformBox && (
               <div className="w-screen h-screen absolute top-0 left-0 z-50 bg-[#6462627a] flex items-center justify-center">
                 <div className="w-1/2 h-2/5 bg-white rounded-3xl overflow-hidden">
-                  <div className="bg-[#6234C1] h-20 w-full flex items-center justify-center text-4xl font-bold text-white">
+                  <div className="bg-[#6234C1] py-5 w-full flex items-center justify-center text-2xl font-bold text-white">
                     Log Out
                   </div>
-                  <div className="p-20 flex flex-col items-center justify-center gap-20">
-                    <div className="text-3xl font-bold text-black">
+                  <div className="flex flex-col items-center justify-center gap-10 mt-10">
+                    <div className="text-xl font-bold text-black">
                       Are you sure you want to log out?
                     </div>
                     <div className="flex gap-10">

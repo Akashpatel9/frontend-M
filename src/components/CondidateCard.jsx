@@ -58,20 +58,20 @@ function CondidateCard({ item, idx }) {
   return (
     <div
       style={{ color: color }}
-      className="grid my-5 grid-cols-[80px_80px_250px_300px_200px_200px_150px_150px_150px_50px] font-semibold text-lg"
+      className="grid my-5 grid-cols-[40px_60px_200px_200px_150px_180px_80px_100px_100px_50px] font-semibold text-md"
     >
-      <div className="flex items-center justify-start p-2">
+      <div className="flex items-center justify-start p-1">
         <div
           style={{ backgroundColor: color === "black" ? "white" : color }}
-          className="h-7 w-7 border-2 border-zinc-200 rounded-lg"
+          className="h-5 w-5 border-2 border-zinc-200 rounded-lg"
         ></div>
       </div>
-      <div className="p-2 text-left">{idx + 1}</div>
-      <div className="p-2 text-left">{item?.fullName}</div>
-      <div className="p-2 text-left truncate">{item?.email}</div>
-      <div className="p-2 text-left">{item?.phoneNumber}</div>
-      <div className="p-2 text-left">{item?.department}</div>
-      <div className="p-2 text-left cursor-pointer" onClick={toggleDropdown}>
+      <div className=" text-left">{idx + 1}</div>
+      <div className=" text-left">{item?.fullName}</div>
+      <div className=" text-left truncate">{item?.email}</div>
+      <div className=" text-left">{item?.phoneNumber}</div>
+      <div className=" text-left">{item?.department}</div>
+      <div className=" text-left cursor-pointer" onClick={toggleDropdown}>
         {selectedStatus}
         <div>
           {/* Dropdown menu */}
@@ -80,7 +80,7 @@ function CondidateCard({ item, idx }) {
               {statuses.map((status) => (
                 <div
                   key={status}
-                  className="p-2 hover:bg-gray-200 cursor-pointer"
+                  className=" hover:bg-gray-200 cursor-pointer"
                   onClick={() => handleStatusChange(status)}
                 >
                   {status}
@@ -90,13 +90,13 @@ function CondidateCard({ item, idx }) {
           )}
         </div>
       </div>
-      <div className="p-2 text-left">{item?.experience}</div>
+      <div className=" text-left">{item?.experience}</div>
       <div className="flex items-center justify-start p-2 text-2xl">
-        <a href={`${item?.resume}`}>
+        <a className="text-sm" href={`${item?.resume}`}>
           <IoMdDownload />
         </a>
       </div>
-      <div className="flex items-center justify-start p-2 text-2xl">
+      <div className="flex items-center justify-start text-2xl">
         <MdDeleteOutline
           onClick={deleteHandler}
           className="text-red-600 cursor-pointer"

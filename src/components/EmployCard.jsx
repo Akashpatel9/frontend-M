@@ -47,24 +47,24 @@ function EmployCard({ employDetailsHendler, item }) {
   }, []);
 
   return (
-    <div className="grid my-5 grid-cols-[80px_150px_200px_300px_250px_200px_200px_200px_80px] font-semibold text-lg items-center">
+    <div className="grid my-5 grid-cols-[50px_100px_200px_200px_150px_150px_150px_150px_80px] font-semibold text-md items-center">
       <div className="absolute">
         <ToastContainer position="top-right" />
       </div>
       <div className="p-2 text-left">
-        <div className="bg-zinc-300 h-7 w-7 rounded-lg"></div>
+        <div className="bg-zinc-300 h-5 w-5 rounded-lg"></div>
       </div>
-      <div className="flex items-center justify-start p-2">
-      <div className="h-12 w-12 rounded-full bg-red-300 overflow-hidden">
+      <div className="flex items-center justify-start">
+      <div className="h-8 w-8 rounded-full bg-red-300 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1728411666518-cc54a750bf05?q=80&w=1888&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
         </div>
       </div>
-      <div className="p-2 text-left">{item?.fullName}</div>
-      <div className="p-2 text-left truncate">{item?.email}</div>
-      <div className="p-2 text-left">{item?.phoneNumber}</div>
-      <div className="p-2 text-left">{item?.position}</div>
-      <div className="p-2 text-left">{item?.department}</div>
-      <div className="p-2 text-left">
+      <div className="text-left">{item?.fullName}</div>
+      <div className="text-left truncate">{item?.email}</div>
+      <div className="text-left">{item?.phoneNumber}</div>
+      <div className="text-left">{item?.position}</div>
+      <div className="text-left">{item?.department}</div>
+      <div className="text-left">
         {item?.dateOfJoining
           ? new Date(item.dateOfJoining).toLocaleDateString(undefined, {
               year: "numeric",
@@ -74,21 +74,21 @@ function EmployCard({ employDetailsHendler, item }) {
           : "N/A"}
       </div>
 
-      <div className="flex items-center justify-start p-2 gap-3 text-2xl relative">
+      <div className="flex items-center justify-start gap-3 text-xl relative">
         <BsThreeDotsVertical onClick={toggleDropdown} />
         {isOpen && (
           <div
             ref={dropdownRef}
-            className="absolute right-0 text-black z-10 bg-white border border-gray-300 rounded-md shadow-md mt-1"
+            className="absolute bg-white top-5 -left-10 p-1 text-black z-10 border border-gray-300 rounded-md shadow-md mt-1"
           >
             <div
-              className="p-2 hover:bg-gray-200 cursor-pointer"
+              className=" hover:bg-gray-200 cursor-pointer"
               onClick={handleEdit}
             >
               Edit
             </div>
             <div
-              className="p-2 hover:bg-gray-200 cursor-pointer"
+              className=" hover:bg-gray-200 cursor-pointer"
               onClick={handleDelete}
             >
               Delete

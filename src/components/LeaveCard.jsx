@@ -44,16 +44,16 @@ function LeaveCard({ item }) {
   }, []);
 
   return (
-    <div className="grid my-5 grid-cols-[80px_200px_100px_300px_150px_80px] font-semibold text-lg items-center">
+    <div className="grid my-5 grid-cols-[80px_200px_100px_200px_120px_80px] font-semibold text-md items-center">
       <div className="flex items-center justify-start p-2">
         <div
           style={{ backgroundColor: color === "black" ? "white" : color }}
-          className="h-10 w-10 border-2 border-zinc-200 rounded-full"
+          className="h-8 w-8 border-2 border-zinc-200 rounded-full"
         ></div>
       </div>
-      <div className="p-2 text-left">{item?.fullName}</div>
+      <div className="text-left">{item?.fullName}</div>
       <div className="text-sm leading-3 font-bold">
-        <div className="p-2 text-left">
+        <div className=" text-left">
           {new Date(item?.leaveStartDate).toLocaleDateString("en-US", {
             year: "numeric",
             month: "2-digit",
@@ -61,7 +61,7 @@ function LeaveCard({ item }) {
           })}
         </div>
         {item.leaveStartDate != item.leaveEndDate && (
-          <div className="p-2 text-left">
+          <div className="text-left">
             {new Date(item?.leaveEndDate).toLocaleDateString("en-US", {
               year: "numeric",
               month: "2-digit",
@@ -70,11 +70,11 @@ function LeaveCard({ item }) {
           </div>
         )}
       </div>
-      <div className="p-2 text-left truncate">{item?.reason}</div>
+      <div className="text-left truncate">{item?.reason}</div>
       <div
         onClick={() => setIsOpen((prev) => !prev)}
         style={{ color: color }}
-        className="p-2 text-left cursor-pointer"
+        className="text-left cursor-pointer"
       >
         {item?.status}
         {isOpen && (
@@ -82,7 +82,7 @@ function LeaveCard({ item }) {
             {statusOptions.map((status) => (
               <div
                 key={status}
-                className="p-2 hover:bg-gray-200 cursor-pointer"
+                className=" hover:bg-gray-200 cursor-pointer"
                 onClick={() => handleStatusChange(status)}
               >
                 {status}

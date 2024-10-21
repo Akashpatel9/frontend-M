@@ -78,11 +78,11 @@ function Condidate() {
   }
 
   return (
-    <div className="p-5 w-full">
+    <div className="p-5 w-[80vw]">
       <div className="absolute">
         <ToastContainer position="top-right" />
       </div>
-      <div className="my-5 flex items-center justify-between">
+      <div className="my-2 flex items-center justify-between">
         <div className="flex text-xl gap-5">
           {/* Dropdown for Status Filter */}
           <DropDown
@@ -118,7 +118,7 @@ function Condidate() {
           </button>
         </div>
       </div>
-      <div className="relative border-2 w-full h-full border-gray-300 rounded-3xl overflow-hidden">
+      <div className="relative border-2 w-full h-full border-gray-300 rounded-2xl overflow-hidden">
         {/* Modal */}
         {showModel && (
           <Model>
@@ -135,24 +135,24 @@ function Condidate() {
               </div>
               <div>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                  <div className="grid grid-cols-2 gap-10 p-10 mt-10">
+                  <div className="grid grid-cols-2 gap-5 p-10 mt-10">
                     <input
                       required={true}
-                      className="h-20 rounded-2xl p-5 outline-none text-2xl border-4 border-[#6C39D6]"
+                      className="h-14 rounded-2xl p-5 outline-none text-2xl border-4 border-[#6C39D6]"
                       placeholder="Full Name"
                       {...register("fullName")}
                       type="text"
                     />
                     <input
                       required={true}
-                      className="h-20 rounded-2xl p-5 outline-none text-2xl border-4 border-[#6C39D6]"
+                      className="h-14 rounded-2xl p-5 outline-none text-2xl border-4 border-[#6C39D6]"
                       placeholder="Email Address"
                       {...register("email")}
                       type="email"
                     />
                     <input
                       required={true}
-                      className="h-20 rounded-2xl p-5 outline-none text-2xl border-4 border-[#6C39D6]"
+                      className="h-14 rounded-2xl p-5 outline-none text-2xl border-4 border-[#6C39D6]"
                       placeholder="Phone Number"
                       {...register("phoneNumber")}
                       type="number"
@@ -161,25 +161,25 @@ function Condidate() {
                     />
                     <input
                       required={true}
-                      className="h-20 rounded-2xl p-5 outline-none text-2xl border-4 border-[#6C39D6]"
+                      className="h-14 rounded-2xl p-5 outline-none text-2xl border-4 border-[#6C39D6]"
                       placeholder="Department"
                       {...register("department")}
                       type="text"
                     />
                     <input
                       required={true}
-                      className="h-20 rounded-2xl p-5 outline-none text-2xl border-4 border-[#6C39D6]"
+                      className="h-14 rounded-2xl p-5 outline-none text-2xl border-4 border-[#6C39D6]"
                       placeholder="Experience"
                       {...register("experience")}
                       type="number"
                       max={10}
                       min={0}
                     />
-                    <div className="relative h-20 rounded-2xl p-5 outline-none text-2xl border-4 border-[#6C39D6] flex items-center justify-between">
+                    <div className="relative h-14 rounded-2xl p-5 outline-none text-2xl border-4 border-[#6C39D6] flex items-center justify-between">
                       <span className="text-zinc-400">Upload Resume</span>
                       <label
                         htmlFor="resume"
-                        className="bg-[#6C39D6] text-white px-4 py-2 rounded-lg cursor-pointer"
+                        className="bg-[#6C39D6] text-white px-2 py-1 rounded-lg cursor-pointer"
                       >
                         Choose File
                       </label>
@@ -194,7 +194,7 @@ function Condidate() {
                   </div>
                   <div className="w-full flex items-center justify-center">
                     <input
-                      className="bg-zinc-600 cursor-pointer text-white w-80 h-16 rounded-full mt-20 font-semibold text-2xl"
+                      className="bg-zinc-600 cursor-pointer text-white w-80 h-14 rounded-full mt-2 font-semibold text-2xl"
                       type="submit"
                       value={"Save"}
                     />
@@ -206,17 +206,17 @@ function Condidate() {
         )}
 
         {/* Header Row */}
-        <div className="grid grid-cols-[80px_80px_250px_300px_200px_200px_150px_150px_150px_50px] bg-[#6334C4] text-white text-xl font-bold h-20 items-center">
-          <div className="p-2 text-center"></div>
-          <div className="p-2 text-left">Sr no.</div>
-          <div className="p-2 text-left">Candidates Name</div>
-          <div className="p-2 text-left">Email Address</div>
-          <div className="p-2 text-left">Phone Number</div>
-          <div className="p-2 text-left">Position</div>
-          <div className="p-2 text-left">Status</div>
-          <div className="p-2 text-left">Experience</div>
-          <div className="p-2 text-left">Resume</div>
-          <div className="p-2 text-center">Delete</div>
+        <div className="grid grid-cols-[40px_60px_200px_200px_150px_180px_80px_100px_100px_50px] bg-[#6334C4] text-white text-md font-bold h-20 items-center">
+          <div className="text-center"></div>
+          <div className="text-left">Sr no.</div>
+          <div className="text-left">Candidates Name</div>
+          <div className="text-left">Email Address</div>
+          <div className="text-left">Phone Number</div>
+          <div className="text-left">Position</div>
+          <div className="text-left">Status</div>
+          <div className="text-left">Experience</div>
+          <div className="text-left">Resume</div>
+          <div className="text-center">Delete</div>
         </div>
 
         <div className="overflow-auto h-[65vh]">

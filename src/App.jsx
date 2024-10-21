@@ -19,7 +19,7 @@ function App() {
           <Route
             path="/"
             element={
-              <div className="px-10 py-20">
+              <div className="px-10 py-20 w-screen h-screen">
                 <div className="flex h-full w-full border-2 border-zinc-400 rounded-2xl overflow-hidden">
                   <SignupPage />
                   <HeroSection />
@@ -31,7 +31,7 @@ function App() {
           <Route
             path="/signin"
             element={
-              <div className="px-10 py-20">
+              <div className="px-10 py-20 h-screen w-screen">
                 <div className="flex h-full w-full border-2 border-zinc-400 rounded-2xl overflow-hidden">
                   <LoginPage />
                   <HeroSection />
