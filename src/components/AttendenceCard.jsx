@@ -117,7 +117,7 @@ function AttendanceCard({ item, employDetailsHandler }) {
       <div className="text-left">{item?.position}</div>
       <div className="text-left">{item?.department}</div>
       <input
-        className="text-left outline-none p-2"
+        className="text-left outline-none p-2 underline cursor-text"
         type="text"
         placeholder={item?.task === "N/A" || item?.task === "" ? "--" : item?.task}
         required={true}
@@ -126,7 +126,7 @@ function AttendanceCard({ item, employDetailsHandler }) {
       />
       <div
         onClick={() => setIsOpen((prev) => !prev)}
-        className="relative text-left cursor-pointer"
+        className="relative text-left cursor-pointer underline"
       >
         {selectedStatus}
         {isOpen && (

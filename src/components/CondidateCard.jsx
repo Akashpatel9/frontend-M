@@ -71,7 +71,7 @@ function CondidateCard({ item, idx }) {
       <div className=" text-left truncate">{item?.email}</div>
       <div className=" text-left">{item?.phoneNumber}</div>
       <div className=" text-left">{item?.department}</div>
-      <div className=" relative text-left cursor-pointer" onClick={toggleDropdown}>
+      <div className=" relative text-left cursor-pointer underline" onClick={toggleDropdown}>
         {selectedStatus}
         <div>
           {/* Dropdown menu */}
@@ -83,8 +83,6 @@ function CondidateCard({ item, idx }) {
                   className="  hover:bg-gray-200 cursor-pointer"
                   onClick={() =>{
                      handleStatusChange(status)
-                    console.log("clicked");
-                    
                     }}
                 >
                   {status}

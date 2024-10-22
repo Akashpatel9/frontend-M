@@ -74,7 +74,7 @@ function LeaveCard({ item }) {
       <div
         onClick={() => setIsOpen((prev) => !prev)}
         style={{ color: color }}
-        className="relative text-left cursor-pointer"
+        className="relative text-left cursor-pointer underline"
       >
         {item?.status}
         {isOpen && (
