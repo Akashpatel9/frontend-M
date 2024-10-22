@@ -7,7 +7,6 @@ import { Outlet } from 'react-router-dom'
 import { useAuth } from '../context/usercontext'
 
 function Home() {
-    
   return (
     <div className='flex w-screen lg:h-screen'>
         <SideBar/>

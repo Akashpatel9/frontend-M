@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { CiSearch } from "react-icons/ci";
 import { ToastContainer, toast } from "react-toastify";
 import { useForm } from "react-hook-form";
@@ -7,6 +7,7 @@ import DropDown from "./DropDown";
 import "react-toastify/dist/ReactToastify.css";
 import LeaveCard from "./LeaveCard";
 import { useLeaves } from "../context/LeaveContext";
+import { AuthContext } from "../context/usercontext";
 
 // Utility function to format date as YYYY-MM-DD
 const formatDate = (date) => {
@@ -25,9 +26,16 @@ function Leave() {
 
   const [filterDataByDate, setFilterDataByDate] = useState([]);
   const [dateInput, setDateInput] = useState(formatDate(new Date()));
-  console.log(dateInput);
+  
+  const {logout} = useContext(AuthContext)
 
   useEffect(() => {
+
+    const storedAuth = localStorage.getItem("authToken");
+    if (!storedAuth) {
+      logout();
+      return;
+    }
     setFilterDataByDate(
       leaves.filter((e) => {
         console.log(formatDate(e.leaveStartDate) == dateInput);

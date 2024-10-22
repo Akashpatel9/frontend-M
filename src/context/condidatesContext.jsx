@@ -27,7 +27,6 @@ export const CandidatesProvider = ({ children }) => {
   // Fetch candidates only when `auth` is available
   useEffect(() => {
     const fetchCandidates = async () => {
-
       setLoading(true);
       try {
         const res = await axios.get(

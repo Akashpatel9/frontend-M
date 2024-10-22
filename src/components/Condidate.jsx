@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { CiSearch } from "react-icons/ci";
 import CondidateCard from "./CondidateCard";
 import { ToastContainer, toast } from "react-toastify";
@@ -8,13 +8,22 @@ import Model from "./Model";
 import DropDown from "./DropDown";
 
 import "react-toastify/dist/ReactToastify.css";
+import { AuthContext } from "../context/usercontext";
 
 function Condidate() {
   const { candidates, addCandidate } = useCandidates();
   const [filterData, setFilterData] = useState([]);
   const [inputValue, setInputValue] = useState("");
 
+  const {logout} = useContext(AuthContext)
+
   useEffect(() => {
+
+    const storedAuth = localStorage.getItem("authToken");
+    if (!storedAuth) {
+      logout();
+      return;
+    }
     setFilterData(
       candidates?.filter((e) => {
         return e.fullName.startsWith(inputValue);

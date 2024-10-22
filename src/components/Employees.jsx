@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { CiSearch } from "react-icons/ci";
 import EmployCard from "./EmployCard";
 import Model from "./Model";
@@ -7,6 +7,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import DropDown from "./DropDown";
 import { useCandidates } from "../context/condidatesContext";
+import { AuthContext } from "../context/usercontext";
 
 function formatDateForInput(dateString) {
   const date = new Date(dateString);
@@ -22,7 +23,16 @@ function Employees() {
   const [filteredEmployes, setFilteredEmployes] = useState([]);
   const [inputValue, setInputValue] = useState("");
 
+  const {logout} = useContext(AuthContext)
+
   useEffect(() => {
+
+    const storedAuth = localStorage.getItem("authToken");
+    if (!storedAuth) {
+      logout();
+      return;
+    }
+
     setFilteredEmployes(
       candidates.filter((e) => {
         return e.status === "Selected" && e.fullName.startsWith(inputValue);
