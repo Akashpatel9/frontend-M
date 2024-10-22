@@ -27,7 +27,6 @@ export const CandidatesProvider = ({ children }) => {
   // Fetch candidates only when `auth` is available
   useEffect(() => {
     const fetchCandidates = async () => {
-      if (!auth) return;
 
       setLoading(true);
       try {
@@ -45,7 +44,7 @@ export const CandidatesProvider = ({ children }) => {
       }
     };
 
-    fetchCandidates();
+    if(auth) fetchCandidates();
   }, [auth, logout]);
 
   // Add candidate

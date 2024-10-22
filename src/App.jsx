@@ -9,6 +9,7 @@ import Employees from "./components/Employees";
 import Attendence from "./components/Attendence";
 import Leave from "./components/Leave";
 import { useAuth } from "./context/usercontext";
+import ProtectedRoute from "./pages/ProtectedRoute";
 
 function App() {
   const { auth } = useAuth();
@@ -39,6 +40,8 @@ function App() {
               </div>
             }
           />
+
+          <Route path="*" element={<ProtectedRoute />} />
         </Routes>
       ) : (
         <Routes>
@@ -48,6 +51,7 @@ function App() {
             <Route path="/attendence" element={<Attendence />} />
             <Route path="/leave" element={<Leave />} />
           </Route>
+          <Route path="*" element={<ProtectedRoute />} />
         </Routes>
       )}
     </div>
