@@ -243,7 +243,11 @@ function Leave() {
                 {filterDataByDate?.map((e) => {
                   return (
                     <div className="flex items-center justify-between">
-                      <div className="rounded-full md:h-10 md:w-10 h-6 w-6 bg-red-200"></div>
+                      <div className="rounded-full md:h-10 md:w-10 h-6 w-6 overflow-hidden bg-red-200"> <img
+                      
+              src="https://plus.unsplash.com/premium_photo-1728497241495-32c2fe693b4f?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt=""
+            /></div>
                       <div>
                         <div className="font-semibold md:text-md text-xs">
                           {e?.fullName}
