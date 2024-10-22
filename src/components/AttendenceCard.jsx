@@ -21,8 +21,6 @@ function useDebounce(value, delay) {
 }
 
 function AttendanceCard({ item, employDetailsHandler }) {
-    console.log(item);
-    
   const { updateCandidateTask, updateCandidateAttandence, editCandidate, deleteCandidate } = useCandidates(); // Destructure context
   const dropdownRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
@@ -71,7 +69,7 @@ function AttendanceCard({ item, employDetailsHandler }) {
 
   const handleDelete = async () => {
     try {
-      await deleteCandidate(item._id); // Use deleteCandidate from context
+      await deleteCandidate(item._id); 
       toast.success("Candidate deleted successfully!");
     } catch (error) {
       toast.error("Error deleting candidate.");
@@ -128,7 +126,7 @@ function AttendanceCard({ item, employDetailsHandler }) {
       />
       <div
         onClick={() => setIsOpen((prev) => !prev)}
-        className="text-left cursor-pointer"
+        className="relative text-left cursor-pointer"
       >
         {selectedStatus}
         {isOpen && (
