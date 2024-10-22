@@ -123,9 +123,9 @@ function Leave() {
         {showModel && (
           <Model>
             <div className="absolute bg-white z-50 w-full h-full t-0 border-2 border-zinc-300">
-              <div className="w-full h-20 bg-[#6C39D6] flex items-center justify-between px-10 text-3xl font-semibold text-white">
+              <div className="w-full md:h-20 h-14 bg-[#6C39D6] flex items-center justify-between px-10 text-3xl font-semibold text-white">
                 <div></div>
-                <div>Add New Leave</div>
+                <div className="text-base md:text-2xl">Add New Leave</div>
                 <div
                   onClick={closeModel}
                   className="bg-white cursor-pointer h-7 w-7 rounded-full flex items-center justify-center font-bold text-[#6C39D6] text-xl"
@@ -135,38 +135,38 @@ function Leave() {
               </div>
               <div>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                  <div className="grid grid-cols-2 gap-5 p-10 mt-10">
+                  <div className="grid md:grid-cols-2 gap-5 md:p-10 p-2 md:mt-10">
                     <input
                       required={true}
-                      className="h-14 rounded-2xl p-5 outline-none text-2xl border-4 border-[#6C39D6]"
+                      className="md:h-14 h-10 text-sm w-full rounded-2xl p-5 outline-none md:text-2xl border-4 border-[#6C39D6]"
                       placeholder="Full Name"
                       {...register("fullName")}
                       type="text"
                     />
                     <input
                       required={true}
-                      className="h-14 rounded-2xl p-5 outline-none text-2xl border-4 border-[#6C39D6]"
+                      className="md:h-14 h-10 text-sm w-full rounded-2xl p-5 outline-none md:text-2xl border-4 border-[#6C39D6]"
                       placeholder="Designation"
                       {...register("designation")}
                       type="text"
                     />
                     <input
                       required={true}
-                      className="h-14 rounded-2xl p-5 outline-none text-2xl border-4 border-[#6C39D6]"
+                      className="md:h-14 h-10 text-sm w-full rounded-2xl p-5 outline-none md:text-2xl border-4 border-[#6C39D6]"
                       placeholder="Leave Date"
                       {...register("leaveStartDate")}
                       type="date"
                     />
                     <input
                       required={true}
-                      className="h-14 rounded-2xl p-5 outline-none text-2xl border-4 border-[#6C39D6]"
+                      className="md:h-14 h-10 text-sm w-full rounded-2xl p-5 outline-none md:text-2xl border-4 border-[#6C39D6]"
                       placeholder="Leave Date"
                       {...register("leaveEndDate")}
                       type="date"
                     />
                     <input
                       required={true}
-                      className="h-14 rounded-2xl p-5 outline-none text-2xl border-4 border-[#6C39D6]"
+                      className="md:h-14 h-10 text-sm w-full rounded-2xl p-5 outline-none md:text-2xl border-4 border-[#6C39D6]"
                       placeholder="Reason"
                       {...register("reason")}
                       type="text"
