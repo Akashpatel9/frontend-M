@@ -42,7 +42,10 @@ function Leave() {
     handleSubmit,
     reset,
     formState: { errors },
+    formState,
   } = useForm();
+
+  const { isSubmitting } = formState;
 
   useEffect(() => {
     const filteredLeaves = leaves?.filter((e) => {
@@ -190,9 +193,11 @@ function Leave() {
                   </div>
                   <div className="w-full flex items-center justify-center">
                     <input
-                      className="bg-zinc-600 cursor-pointer text-white w-80 h-14 rounded-full mt-2 font-semibold text-2xl"
+                      disabled={isSubmitting}
+                      style={{ opacity: isSubmitting ? "0.5" : "1" }}
+                      className="bg-zinc-600 cursor-pointer text-white md:w-80 md:h-14 w-40 h-10 text-sm rounded-xl mt-2 font-semibold md:text-2xl"
                       type="submit"
-                      value={"Save"}
+                      value={isSubmitting ? "Saving..." : "Save"}
                     />
                   </div>
                 </form>
@@ -243,11 +248,13 @@ function Leave() {
                 {filterDataByDate?.map((e) => {
                   return (
                     <div className="flex items-center justify-between">
-                      <div className="rounded-full md:h-10 md:w-10 h-6 w-6 overflow-hidden bg-red-200"> <img
-                      
-              src="https://plus.unsplash.com/premium_photo-1728497241495-32c2fe693b4f?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt=""
-            /></div>
+                      <div className="rounded-full md:h-10 md:w-10 h-6 w-6 overflow-hidden bg-red-200">
+                        {" "}
+                        <img
+                          src="https://plus.unsplash.com/premium_photo-1728497241495-32c2fe693b4f?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                          alt=""
+                        />
+                      </div>
                       <div>
                         <div className="font-semibold md:text-md text-xs">
                           {e?.fullName}

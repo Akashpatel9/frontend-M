@@ -13,14 +13,15 @@ function LoginPage() {
     register,
     handleSubmit,
     formState: { errors },
+    formState
   } = useForm();
+
+  const { isSubmitting } = formState;
 
   const onSubmit = async (data) => {
     try {
       const res = await axios.post('https://backend-m.onrender.com/user/signin', data);
       toast.success(res.data.message);
-
-
       await localStorage.setItem('authToken', res.data.token); 
       await saveUser(res.data.token); 
       navigate('/');
@@ -67,9 +68,11 @@ function LoginPage() {
             {errors.password && <span className="text-red-500">{errors.password.message}</span>}
           </label>
           <input
+          disabled={isSubmitting}
+          style={{ opacity: isSubmitting ? "0.5" : "1" }}
            className="bg-[#733CE4] rounded-full w-full text-xl md:py-2 py-1 text-white font-semibold cursor-pointer"
             type="submit"
-            value="Log In"
+            value={isSubmitting?"Loading...":"Log In"}
           />
 
           <div className="flex gap-3 text-xs md:text-base text-zinc-400 font-semibold">

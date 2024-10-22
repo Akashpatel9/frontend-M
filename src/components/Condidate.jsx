@@ -43,7 +43,10 @@ function Condidate() {
     handleSubmit,
     reset,
     formState: { errors },
+    formState
   } = useForm();
+
+  const { isSubmitting } = formState;
 
   const onSubmit = async (data) => {
     const formData = new FormData();
@@ -194,10 +197,12 @@ function Condidate() {
                     </div>
                   </div>
                   <div className="w-full flex items-center justify-center">
-                    <input
+                  <input
+                    disabled={isSubmitting}
+                    style={{ opacity: isSubmitting ? "0.5" : "1" }}
                       className="bg-zinc-600 cursor-pointer text-white md:w-80 md:h-14 w-40 h-10 text-sm rounded-xl mt-2 font-semibold md:text-2xl"
                       type="submit"
-                      value={"Save"}
+                      value={isSubmitting?"Saving...":"Save"}
                     />
                   </div>
                 </form>

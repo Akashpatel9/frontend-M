@@ -54,7 +54,10 @@ function Attendence() {
     handleSubmit,
     reset,
     formState: { errors },
+    formState
   } = useForm();
+
+  const { isSubmitting } = formState;
 
   function openModel() {
     setShowModel(true);
@@ -245,9 +248,11 @@ function Attendence() {
                   </div>
                   <div className="w-full flex items-center justify-center">
                     <input
+                    disabled={isSubmitting}
+                    style={{ opacity: isSubmitting ? "0.5" : "1" }}
                       className="bg-zinc-600 cursor-pointer text-white md:w-80 md:h-14 w-40 h-10 text-sm rounded-xl mt-2 font-semibold md:text-2xl"
                       type="submit"
-                      value={"Save"}
+                      value={isSubmitting?"Saving...":"Save"}
                     />
                   </div>
                 </form>
@@ -255,18 +260,6 @@ function Attendence() {
             </div>
           </Model>
         )}
-
-        {/* Header Row */}
-        {/* <div className="grid grid-cols-[40px_100px_200px_150px_200px_300px_150px_80px] bg-[#6334C4] text-white text-md font-bold h-20 items-center">
-          <div className="text-left"></div>
-          <div className="text-left">Profile</div>
-          <div className="text-left">Employee Name</div>
-          <div className="text-left">Designation</div>
-          <div className="text-left">Department</div>
-          <div className="text-left">Task</div>
-          <div className="text-left">Status</div>
-          <div className="text-left"></div>
-        </div> */}
 
         {/* Data Rows */}
         <div className="overflow-auto h-[65vh]">
