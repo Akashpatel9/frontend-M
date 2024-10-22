@@ -9,9 +9,9 @@ import { useAuth } from '../context/usercontext'
 function Home() {
     
   return (
-    <div className='flex w-screen h-screen'>
+    <div className='flex w-screen lg:h-screen'>
         <SideBar/>
-        <div className='w-full h-full'>
+        <div className='w-full'>
             <TopBar/>
             <Outlet/>
         </div>

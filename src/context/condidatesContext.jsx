@@ -2,7 +2,7 @@ import React, { createContext, useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { useAuth } from "./usercontext";
 
-const CandidatesContext = createContext(null);
+export const CandidatesContext = createContext(null);
 
 export const useCandidates = () => {
   return useContext(CandidatesContext);
@@ -13,6 +13,7 @@ export const CandidatesProvider = ({ children }) => {
   const [candidates, setCandidates] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [nev, setNev] = useState(false);
 
   // Set default axios headers with the token if available
   useEffect(() => {
@@ -197,7 +198,8 @@ export const CandidatesProvider = ({ children }) => {
         deleteCandidate,
         updateCandidateStatus,
         updateCandidateAttandence,
-        updateCandidateTask
+        updateCandidateTask,
+        nev, setNev
       }}
     >
       {children}

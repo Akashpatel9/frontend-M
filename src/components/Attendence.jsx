@@ -99,14 +99,12 @@ function Attendence() {
   if (error) return <div>{error}</div>;
 
   return (
-    <div className="p-5 w-[80vw]">
+    <div className="p-5 lg:w-[80vw] ">
       <div className="absolute">
         <ToastContainer position="top-right" />
       </div>
-      <div className="my-5 flex items-center justify-between">
-        {/* Search and Add Employee */}
-        <div className="flex text-xl justify-between w-full">
-          {/* Dropdown for Department Filter */}
+      <div className="my-2 flex items-center justify-between">
+        <div className="flex md:text-xl text-xs gap-2 justify-between w-full">
           <DropDown
             options={candidates.map((e) => {
               return e.department;
@@ -128,13 +126,13 @@ function Attendence() {
       </div>
 
       {/* Employee Table */}
-      <div className="relative border-2 border-gray-300 rounded-3xl overflow-hidden">
+      <div className="relative border-2 border-gray-300 rounded-3xl overflow-auto">
         {showModel && (
           <Model>
             <div className="absolute bg-white z-50 w-full h-full t-0">
               <div className="w-full h-20 bg-[#6C39D6] flex items-center justify-between px-10 text-3xl font-semibold text-white">
                 <div></div>
-                <div>Edit Candidate</div>
+                <div className="text-base md:text-2xl">Edit Candidate</div>
                 <div
                   onClick={closeModel}
                   className="bg-white cursor-pointer h-7 w-7 rounded-full flex items-center justify-center font-bold text-[#6C39D6] text-xl"
@@ -144,10 +142,10 @@ function Attendence() {
               </div>
               <div>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                  <div className="grid grid-cols-2 gap-5 p-10 mt-10">
+                <div className="grid md:grid-cols-2 gap-5 md:p-10 p-2 md:mt-10">
                     <input
                       required
-                      className="h-14 rounded-2xl p-5 outline-none text-2xl border-4 border-[#6C39D6]"
+                      className="md:h-14 h-10 text-sm w-full rounded-2xl p-5 outline-none md:text-2xl border-4 border-[#6C39D6]"
                       placeholder="Full Name"
                       {...register("fullName", {
                         required: "Full Name is required.",
@@ -161,7 +159,7 @@ function Attendence() {
                     )}
                     <input
                       required
-                      className="h-14 rounded-2xl p-5 outline-none text-2xl border-4 border-[#6C39D6]"
+                      className="md:h-14 h-10 text-sm w-full rounded-2xl p-5 outline-none md:text-2xl border-4 border-[#6C39D6]"
                       placeholder="Email Address"
                       {...register("email", {
                         required: "Email is required.",
@@ -179,7 +177,7 @@ function Attendence() {
                     )}
                     <input
                       required
-                      className="h-14 rounded-2xl p-5 outline-none text-2xl border-4 border-[#6C39D6]"
+                      className="md:h-14 h-10 text-sm w-full rounded-2xl p-5 outline-none md:text-2xl border-4 border-[#6C39D6]"
                       placeholder="Phone Number"
                       {...register("phoneNumber", {
                         required: "Phone Number is required.",
@@ -199,7 +197,7 @@ function Attendence() {
                     )}
                     <input
                       required
-                      className="h-14 rounded-2xl p-5 outline-none text-2xl border-4 border-[#6C39D6]"
+                      className="md:h-14 h-10 text-sm w-full rounded-2xl p-5 outline-none md:text-2xl border-4 border-[#6C39D6]"
                       placeholder="Department"
                       {...register("department", {
                         required: "Department is required.",
@@ -232,7 +230,7 @@ function Attendence() {
                     )}
                     <input
                       required
-                      className="h-14 rounded-2xl p-5 outline-none text-2xl border-4 border-[#6C39D6]"
+                      className="md:h-14 h-10 text-sm w-full rounded-2xl p-5 outline-none md:text-2xl border-4 border-[#6C39D6]"
                       placeholder="Date of Joining"
                       {...register("dateOfJoining", {
                         required: "Date of Joining is required.",
@@ -247,7 +245,7 @@ function Attendence() {
                   </div>
                   <div className="w-full flex items-center justify-center">
                     <input
-                      className="bg-zinc-600 text-white w-80 h-14 rounded-full mt-2 font-semibold text-2xl"
+                      className="bg-zinc-600 cursor-pointer text-white md:w-80 md:h-14 w-40 h-10 text-sm rounded-xl mt-2 font-semibold md:text-2xl"
                       type="submit"
                       value={"Save"}
                     />
@@ -259,7 +257,7 @@ function Attendence() {
         )}
 
         {/* Header Row */}
-        <div className="grid grid-cols-[40px_100px_200px_150px_200px_300px_150px_80px] bg-[#6334C4] text-white text-md font-bold h-20 items-center">
+        {/* <div className="grid grid-cols-[40px_100px_200px_150px_200px_300px_150px_80px] bg-[#6334C4] text-white text-md font-bold h-20 items-center">
           <div className="text-left"></div>
           <div className="text-left">Profile</div>
           <div className="text-left">Employee Name</div>
@@ -268,10 +266,20 @@ function Attendence() {
           <div className="text-left">Task</div>
           <div className="text-left">Status</div>
           <div className="text-left"></div>
-        </div>
+        </div> */}
 
         {/* Data Rows */}
         <div className="overflow-auto h-[65vh]">
+        <div className="grid grid-cols-[40px_100px_200px_150px_200px_300px_150px_80px] bg-[#6334C4] text-white text-md font-bold h-10 items-center">
+          <div className="text-left bg-[#6334C4] h-10"></div>
+          <div className="text-left bg-[#6334C4] h-10">Profile</div>
+          <div className="text-left bg-[#6334C4] h-10">Employee Name</div>
+          <div className="text-left bg-[#6334C4] h-10">Designation</div>
+          <div className="text-left bg-[#6334C4] h-10">Department</div>
+          <div className="text-left bg-[#6334C4] h-10">Task</div>
+          <div className="text-left bg-[#6334C4] h-10">Status</div>
+          <div className="text-left bg-[#6334C4] h-10"></div>
+        </div>
           {filteredEmployes?.map((item) => (
             <AttendenceCard
               key={item._id}

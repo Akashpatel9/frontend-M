@@ -90,21 +90,20 @@ function Leave() {
   const closeModel = () => setShowModel(false);
 
   return (
-    <div className="p-5 w-[80vw]">
+    <div className="p-5 lg:w-[80vw]">
       <div className="absolute">
         <ToastContainer position="top-right" />
       </div>
       <div className="my-2 flex items-center justify-between">
-        <div className="flex text-xl gap-2">
-          {/* Dropdown for Status Filter */}
+        <div className=" hidden md:flex md:text-xl text-xs gap-2 justify-between w-full">
           <DropDown options={["Pending", "Approved", "Rejected"]} fn={fn} />
         </div>
 
-        <div className="flex text-xl gap-5">
-          <div className="border-2 border-[#6C39D6] flex rounded-full items-center justify-center overflow-hidden px-4 py-2">
+        <div className="flex md:text-xl text-xs md:gap-5 gap-2">
+          <div className=" hidden border-2 border-[#6C39D6] md:flex rounded-full items-center justify-center overflow-hidden px-4 py-2">
             <CiSearch />
             <input
-              className="w-full outline-none pl-2"
+              className=" outline-none pl-2"
               type="text"
               placeholder="Search"
               onChange={(e) => setInputValue(e.target.value)}
@@ -113,7 +112,7 @@ function Leave() {
           </div>
           <button
             onClick={openModel}
-            className="px-10 py-2 rounded-full bg-[#6C39D6] font-semibold text-white"
+            className="px-20 py-1 text-sm rounded-full bg-[#6C39D6] font-semibold text-white"
           >
             Add New Leave
           </button>
@@ -202,68 +201,69 @@ function Leave() {
           </Model>
         )}
 
-        <div className=" border-2 w-full h-full border-gray-300 rounded-3xl overflow-hidden">
-          {/* Header Row */}
-          <div className="grid grid-cols-[80px_200px_100px_200px_120px_80px] bg-[#6334C4] text-white text-md font-bold h-20 items-center">
-            <div className="p-2 text-center"></div>
-            <div className="p-2 text-left">Name</div>
-            <div className="p-2 text-left">Date</div>
-            <div className="p-2 text-left">Reason</div>
-            <div className="p-2 text-left">Status</div>
-            <div className="p-2 text-left">Docs</div>
-          </div>
-
-          <div className="overflow-auto h-[65vh]">
-            {/* Data Row */}
-            {filterData?.map((item, idx) => {
-              return <LeaveCard key={idx} item={item} idx={idx} />;
-            })}
-          </div>
-        </div>
-
-        <div className="w-2/4 rounded-3xl overflow-hidden border-2 border-zinc-300 mx-auto">
-          <div className="bg-[#6334C4] w-full h-20 font-bold flex items-center justify-center text-white text-md">
-            Leave Calander
-          </div>
-          <div className="p-5 px-2 ">
-            <div className="flex justify-between items-center gap-2 py-2">
-              <div
-                onClick={() => setDateInput(formatDate(new Date()))}
-                className="px-10 cursor-pointer font-semibold text-md py-3 border-4 border-[#6334C4] text-black capitalize rounded-full bg-white"
-              >
-                Today
+        <div className=" flex flex-col md:flex-row w-full h-auto gap-2">
+          <div className=" border-2 md:w-full w-auto h-full border-gray-300 rounded-3xl overflow-hidden">
+            <div className="overflow-auto md:h-[65vh] w-full min-h-[50vh]">
+              <div className="grid grid-cols-[80px_200px_100px_200px_120px_80px] bg-[#6334C4] font-semibold text-md items-center">
+                <div className="p-2 bg-[#6334C4] text-center"></div>
+                <div className="p-2 bg-[#6334C4] text-left">Name</div>
+                <div className="p-2 bg-[#6334C4] text-left">Date</div>
+                <div className="p-2  bg-[#6334C4] text-left">Reason</div>
+                <div className="p-2 bg-[#6334C4] text-left">Status</div>
+                <div className="p-2 bg-[#6334C4] text-left">Docs</div>
               </div>
-              <input
-                className="px-8 font-semibold text-md py-3 border-4 border-white text-white capitalize rounded-full bg-[#6334C4]"
-                type="date"
-                onChange={(e) => {
-                  setDateInput(e.target.value);
-                }}
-                value={dateInput}
-              />
-            </div>
-            <div className="flex flex-col gap-2 mt-4 overflow-auto">
-              {filterDataByDate?.map((e) => {
-                return (
-                  <div className="flex items-center justify-between">
-                    <div className="rounded-full h-10 w-10 bg-red-200"></div>
-                    <div>
-                      <div className="font-semibold text-md">{e?.fullName}</div>
-                      <div className="font-semibold text-md">
-                        {e?.designation}
-                      </div>
-                    </div>
-                    <div>
-                      <div className="font-semibold text-md">
-                        {formatDate(e?.leaveStartDate)}
-                      </div>
-                      <div className="font-semibold text-md">
-                        {formatDate(e?.leaveEndDate)}
-                      </div>
-                    </div>
-                  </div>
-                );
+              {filterData?.map((item, idx) => {
+                return <LeaveCard key={idx} item={item} idx={idx} />;
               })}
+            </div>
+          </div>
+
+          <div className="w-full h-full md:w-2/4 rounded-3xl overflow-hidden border-2 border-zinc-300 md:mx-auto min-h-[50vh]">
+            <div className="bg-[#6334C4] w-full md:h-20 h-10 font-bold flex items-center justify-center text-white text-md">
+              Leave Calander
+            </div>
+            <div className="md:p-5 p-2 px-4 w-full h-auto">
+              <div className="flex justify-between items-center gap-2 py-2">
+                <div
+                  onClick={() => setDateInput(formatDate(new Date()))}
+                  className="md:px-10 px-2 text-xs md:text-base cursor-pointer font-semibold text-md md:py-3 py-1 border-4 border-[#6334C4] text-black capitalize rounded-2xl bg-white"
+                >
+                  Today
+                </div>
+                <input
+                  className="md:px-8 text-xs px-2 md:text-base font-semibold text-md md:py-3 py-1 border-4 border-white text-white capitalize rounded-full bg-[#6334C4]"
+                  type="date"
+                  onChange={(e) => {
+                    setDateInput(e.target.value);
+                  }}
+                  value={dateInput}
+                />
+              </div>
+              <div className="flex flex-col gap-2 mt-4 overflow-auto">
+                {filterDataByDate?.map((e) => {
+                  return (
+                    <div className="flex items-center justify-between">
+                      <div className="rounded-full md:h-10 md:w-10 h-6 w-6 bg-red-200"></div>
+                      <div>
+                        <div className="font-semibold md:text-md text-xs">
+                          {e?.fullName}
+                        </div>
+                        <div className="font-semibold text-xs md:text-md">
+                          {e?.designation}
+                        </div>
+                      </div>
+                      <div>
+                        <div className="font-semibold md:text-md text-xs">
+                          {formatDate(e?.leaveStartDate)}
+                        </div>
+                        <div className="font-semibold md:text-md text-xs">
+                          {formatDate(e?.leaveEndDate)}
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>

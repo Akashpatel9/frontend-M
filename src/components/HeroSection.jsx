@@ -2,7 +2,7 @@ import heroimg from "../../public/image/heroImg.png";
 
 function HeroSection() {
   return (
-    <div className="w-1/2 h-full p-20 bg-[#733CE4] flex flex-col gap-10">
+    <div className="w-1/2 hidden h-full p-20 bg-[#733CE4] md:flex flex-col gap-10">
       <img
         className="h-[300px] rounded-2xl w-full object-cover"
         src={heroimg}
